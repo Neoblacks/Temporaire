@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 21:26:12 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/09 18:27:10 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/11 11:12:12 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,9 @@ int	main(int argc, char **argv)
 		data.total_count_collect = 0; //NEED TO CALL THIS INITIALIZATION
 		data.nb_map = 1;
 		data.count = 0;
+		data.nb_take_collect = 0;
 		ft_content(&(data.content));
-		first_map = "map/map_level1.ber";
+		first_map = "map/map_level7.ber";
 		map(first_map, &(data));
 		data.mlx = mlx_init();
 		if (!data.mlx)

@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:28:17 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/09 18:50:00 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:24:31 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,7 @@ void	ft_move_all(t_data *data, int dy, int dx)
 
 	pos_x = data->coord_move.x / data->image.img_height;
 	pos_y = data->coord_move.y / data->image.img_width;
-	ft_count_collect(data);
-	if (data->content.count_collectible == 1)
-	{
-		data->nb_take_collect = 0;
-		ft_printf("nb_take_collect : %d\n", data->nb_take_collect);
-	}
+	// ft_count_collect(data);
 	// printf("pos_x : %d, width: %d\n", pos_x, data->width);
 	// printf("pos_y : %d, widtd: %d\n", pos_y, data->height);
 	if (pos_x + dx < 0 || pos_y + dy < 0 || pos_x + dx >= data->width || pos_y + dy >= data->height)
@@ -93,7 +88,6 @@ void	ft_move_all(t_data *data, int dy, int dx)
 		}
 		else
 		{
-			// ft_count_collect(data);
 
 			if (data->remaning_collect == 0)
 			{
@@ -101,7 +95,7 @@ void	ft_move_all(t_data *data, int dy, int dx)
 				data->total_count_move++;
 				ft_printf("count : %d\n", data->count);
 				ft_printf("GG vous avez gagne en %d coups\n", data->count);
-				if (data->nb_map == 1)
+				if (data->nb_map == 10)
 				{
 					ft_printf("TOTAL COUNT MOVE : %d\n", data->total_count_move);
 					ft_printf("TOTAL COUNT COLLECT : %d\n", data->total_count_collect);
@@ -115,6 +109,12 @@ void	ft_move_all(t_data *data, int dy, int dx)
 
 
 	}
+	ft_count_collect(data);
+	data->nb_take_collect = data->content.count_collectible - data->remaning_collect;
+	data->nb_total_take_collect = data->nb_take_collect;
+	// data->nb_total_take_collect = data->nb_take_collect;
+	ft_printf("TOTAL TAKE : data->nb_total_take_collect : %d\n", data->nb_total_take_collect);
+	ft_printf("LA TENTATIVE : data->nb_take_collect : %d\n", data->nb_take_collect);
 }
 
 /* Function to display the number of movements on the Window */

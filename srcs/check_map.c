@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:58:15 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/09 18:29:19 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:35:46 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,7 @@ int	ft_check_line(char *map_line, char wall)
 // 			ft_error("Error\nBad number of exit or player\n");
 // 			return (FAIL);
 // 		}
-// 		if (map_line[i] != content->wall && map_line[i] != content->player \
-// 			&& map_line[i] != content->exit && map_line[i] \
-// 			!= content->collectible && map_line[i] != '0')
+// 		if (map_line[i] != content->wall && map_line[i] != content->player && map_line[i] != content->exit && map_line[i] != content->collectible && map_line[i] != '0')
 // 		{
 // 			ft_error("Error\nBad symbol in map");
 // 			return (FAIL);

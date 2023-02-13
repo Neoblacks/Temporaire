@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:39:32 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/09 18:40:51 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:16:42 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,7 @@ void	window_utils(t_data *data)
 	}
 	data->counter = 0;
 	data->anim = 0;
+
 	ft_create_new_image(data);
 	render_stock(data);
 	ft_count_collect(data);

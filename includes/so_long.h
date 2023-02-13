@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 21:12:21 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/09 18:48:30 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/10 17:06:57 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ typedef struct s_data
 	int				total_count_collect;
 	int				total_count_other;
 	int				nb_take_collect;
+	int				nb_total_take_collect;
 	int				width;
 	int				height;
 	int				counter;
