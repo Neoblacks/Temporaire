@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 11:39:32 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/10 17:16:42 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/13 14:22:28 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -165,9 +165,9 @@ void	window_utils(t_data *data)
 {
 	data->size_x = data->width * data->image.img_width;
 	data->size_y = data->height * data->image.img_height;
-	ft_printf("size_x = %d\n", data->size_x);
-	ft_printf("size_y = %d\n", data->size_y);
-	ft_printf("Bande noire = %d\n", data->size_y + 48);
+	// ft_printf("size_x = %d\n", data->size_x);
+	// ft_printf("size_y = %d\n", data->size_y);
+	// ft_printf("Bande noire = %d\n", data->size_y + 48);
 	data->win = mlx_new_window(data->mlx, \
 		(data->size_x), \
 		(data->size_y + 48), "So long");

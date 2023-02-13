@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/30 12:28:17 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/10 17:24:31 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:54:12 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,23 @@ void	ft_move_all(t_data *data, int dy, int dx)
 				data->total_count_move++;
 				ft_printf("count : %d\n", data->count);
 				ft_printf("GG vous avez gagne en %d coups\n", data->count);
-				if (data->nb_map == 10)
+				data->nb_total_take_collect += data->nb_take_collect;
+				data->nb_total_take_other += data->nb_take_other;
+				printf("nb_total_take_collectible : %d\n", data->nb_total_take_collect);
+				printf("nb_total_take_other : %d\n", data->nb_total_take_other);
+
+				if (data->nb_map == 1)
 				{
 					ft_printf("TOTAL COUNT MOVE : %d\n", data->total_count_move);
-					ft_printf("TOTAL COUNT COLLECT : %d\n", data->total_count_collect);
-					ft_printf("TOTAL COUNT OTHER : %d\n", data->total_count_other);
+					ft_printf("TOTAL COUNT COLLECT : %d\n", data->nb_total_take_collect);
+					ft_printf("TOTAL COUNT OTHER : %d\n", data->nb_total_take_other);
+					long high_score = (data->total_count_move * (-2)) + (data->nb_total_take_collect * 50) + (data->nb_total_take_other * 240);
+					if (high_score <= 0.0)
+					{
+						high_score = 0.0;
+						printf("YOU LOSE\n");
+					}
+					printf("HIGH SCORE : %li\n", high_score);
 					ft_stop(data, SUCCESS);
 				}
 				else
@@ -111,10 +123,7 @@ void	ft_move_all(t_data *data, int dy, int dx)
 	}
 	ft_count_collect(data);
 	data->nb_take_collect = data->content.count_collectible - data->remaning_collect;
-	data->nb_total_take_collect = data->nb_take_collect;
-	// data->nb_total_take_collect = data->nb_take_collect;
-	ft_printf("TOTAL TAKE : data->nb_total_take_collect : %d\n", data->nb_total_take_collect);
-	ft_printf("LA TENTATIVE : data->nb_take_collect : %d\n", data->nb_take_collect);
+	data->nb_take_other = data->content.total_other - data->content.remaning_other;
 }
 
 /* Function to display the number of movements on the Window */
@@ -136,7 +145,7 @@ void	put_text(t_data *data)
 	text_other = NULL;
 	if (data->content.total_other > 0)
 	{
-		nb_other = ft_itoa(data->content.count_other);
+		nb_other = ft_itoa(data->content.remaning_other);
 		text_other = ft_strjoin("Secret: ", nb_other);
 		mlx_string_put(data->mlx, data->win, 5, data->size_y + 10, 0xffffff, text_other);
 	}

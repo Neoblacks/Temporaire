@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 12:23:49 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/11 11:14:02 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:00:13 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	check_near(t_data *data, int deplacements[4][2])
 	{
 		data->near.x_near = data->position.x + deplacements[i][0];
 		data->near.y_near = data->position.y + deplacements[i][1];
-		printf("x: %d, y: %d, C: %c\n", data->near.y_near, data->near.x_near, data->map[data->near.x_near][data->near.y_near]);
+		// printf("x: %d, y: %d, C: %c\n", data->near.y_near, data->near.x_near, data->map[data->near.x_near][data->near.y_near]);
 		if (is_valid(data->near.x_near, data->near.y_near, data) && \
 			!data->near.visits[data->near.x_near][data->near.y_near])
 		{

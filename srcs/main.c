@@ -6,7 +6,7 @@
 /*   By: amugnier <amugnier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 21:26:12 by amugnier          #+#    #+#             */
-/*   Updated: 2023/02/11 11:12:12 by amugnier         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:37:52 by amugnier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_count_collect(t_data *data)
 
 	j = 0;
 	data->remaning_collect = 0;
-	data->content.count_other = 0;
+	data->content.remaning_other = 0;
 	while (data->map[j])
 	{
 		i = 0;
@@ -35,7 +35,7 @@ void	ft_count_collect(t_data *data)
 				data->remaning_collect++;
 			}
 			if (data->map[j][i] == data->content.other)
-				data->content.count_other++;
+				data->content.remaning_other++;
 			i++;
 		}
 		j++;
@@ -136,8 +136,10 @@ int	main(int argc, char **argv)
 		data.nb_map = 1;
 		data.count = 0;
 		data.nb_take_collect = 0;
+		data.nb_total_take_collect = 0;
+		data.nb_total_take_other = 0;
 		ft_content(&(data.content));
-		first_map = "map/map_level7.ber";
+		first_map = "map/map_level1.ber";
 		map(first_map, &(data));
 		data.mlx = mlx_init();
 		if (!data.mlx)
